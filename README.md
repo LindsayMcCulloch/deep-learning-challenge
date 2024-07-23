@@ -1,6 +1,15 @@
 # deep-learning-challenge
 This is the repository for Monash University Data Analytics Bootcamp Module 21 Challenge
 
+## Contents
+
+* `Analysis_Report.md` is the written analysis report for this challenge 
+* `.png` files containing the screenshots of the notebook code used in `Analysis_Report.md`
+* `AlphabetSoupCharity_Optimisation.ipynb` Jupyter notebook containing the Preprocessing machine learning model from the starter code provided 
+* `AlphabetSoupCharity.h5`
+* `AlphabetSoupCharity_Optimisation.ipynb` Jupyter notebook containing the optimised machine learning model for this challenge 
+* `AlphabetSoupCharity_Optimization.h5`
+
 # Background
 The nonprofit foundation Alphabet Soup wants a tool that can help it select the applicants for funding with the best chance of success in their ventures. With your knowledge of machine learning and neural networks, you’ll use the features in the provided dataset to create a binary classifier that can predict whether applicants will be successful if funded by Alphabet Soup.
 
@@ -195,3 +204,11 @@ The report should contain the following:
 * Summarise the overall results of your model (4)
 
 * Describe how you could use a different model to solve the same problem, and explain why you would use that model (6)
+
+# Resources
+
+BCS Xpert Learning assistant
+
+# Acknowledgments 
+
+Dataset provided by provided by edX Boot Camps LLC.
