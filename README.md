@@ -209,6 +209,20 @@ The report should contain the following:
 
 BCS Xpert Learning assistant
 
+https://en.wikipedia.org/wiki/Layer_(deep_learning)#:~:text=A%20layer%20in%20a%20deep,it%20to%20the%20next%20layer.&text=(AlexNet%20image%20size%20should%20be,math%20will%20come%20out%20right.
+
+https://www.analyticsvidhya.com/blog/2021/03/basics-of-neural-network/
+
+https://developer.nvidia.com/blog/deep-learning-nutshell-core-concepts/
+
+https://stackoverflow.com/questions/35345191/what-is-a-layer-in-a-neural-network
+
+https://stackoverflow.com/questions/41410317/why-do-we-have-multiple-layers-and-multiple-nodes-per-layer-in-a-neural-network
+
+https://www.w3schools.com/python/python_ml_getting_started.asp
+
+https://www.geeksforgeeks.org/introduction-deep-learning/
+
 # Acknowledgments 
 
 Dataset provided by provided by edX Boot Camps LLC.
