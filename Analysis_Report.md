@@ -1,197 +1,76 @@
-# deep-learning-challenge
-This is the repository for Monash University Data Analytics Bootcamp Module 21 Challenge
 
-# Background
-The nonprofit foundation Alphabet Soup wants a tool that can help it select the applicants for funding with the best chance of success in their ventures. With your knowledge of machine learning and neural networks, you’ll use the features in the provided dataset to create a binary classifier that can predict whether applicants will be successful if funded by Alphabet Soup.
+## Overview 
 
-From Alphabet Soup’s business team, you have received a CSV containing more than 34,000 organisations that have received funding from Alphabet Soup over the years. Within this dataset are a number of columns that capture metadata about each organisation, such as:
+The purpose of this analysis is to build a deep neural network model that can predict whether crowdfunding projects will be successful. By preprocessing the data, creating a neural network model, training it on the training data, and evaluating its performance on the test data, the analysis aims to develop a predictive model that can assist in identifying successful projects in advance. This analysis can help stakeholders make informed decisions and allocate resources effectively to maximize the success rate of projects on the crowdfunding platform.
 
-* **EIN and NAME:**Identification columns
+## Results
 
-* **APPLICATION_TYPE:** Alphabet Soup application type
+# Data Preprocessing
 
-* **AFFILIATION:** Affiliated sector of industry
+**What variable(s) are the target(s) for your model?**
 
-* **CLASSIFICATION:** Government organisation classification
+The target variable for the model is the "IS_SUCCESSFUL" column in the dataset
 
-* **USE_CASE:** Use case for funding
+**What variable(s) are the features for your model?**
 
-* **ORGANIZATION:** Organisation type
+The features for the model include all the columns in the dataset except for the target variable "IS_SUCCESSFUL." 
 
-* **STATUS:** Active status
+**What variable(s) should be removed from the input data because they are neither targets nor features?**
 
-* **INCOME_AMT:** Income classification
+In the preprocessing steps, the "EIN" column was dropped from the input data as it is an identification column and not a relevant feature for the model. Additionally, the "NAME" column was also dropped as it does not provide meaningful information for predicting the success of projects on the crowdfunding platform.
 
-* **SPECIAL_CONSIDERATIONS:** Special considerations for application
+# Compiling, Training, and Evaluating the Model
 
-* **ASK_AMT:** Funding amount requested
+**How many neurons, layers, and activation functions did you select for your neural network model, and why?**
 
-* **IS_SUCCESSFUL:** Was the money used effectively
 
-# Instructions
+For the neural network model in this analysis, an input layer was used with 19607 neurons based on the number of input features, 3 hidden layers consisting of; 100 neurons (ReLu), 30 Nuerons (tanh) and 10 neurons (sigmoid), and an output layer of 1 nuerons (sigmoid) allowing the model to learn the patterns of the data Activation Functions:
 
-## Step 1: Preprocess the Data
-Using your knowledge of Pandas and scikit-learn’s `StandardScaler()`, you’ll need to preprocess the dataset. This step prepares you for Step 2, where you'll compile, train, and evaluate the neural network model.
+ReLU (Rectified Linear Unit) was chosen for the first hidden layer as it is a common choice for hidden layers due to its effectiveness and simplicity.
+tanh (Hyperbolic Tangent) activation function was selected for the second hidden layer to introduce non-linearity and capture complex patterns in the data.
+Sigmoid activation function was used for the third hidden layer to introduce non-linearity and map the output to a probability between 0 and 1.
+Sigmoid activation function in the output layer is suitable for binary classification tasks like predicting project success.
+These choices were made to introduce non-linearity, capture complex patterns, and optimize the model's performance for the binary classification task of predicting project success on the crowdfunding platform.
 
-Using the information we provided in the Challenge files, follow the instructions to complete the preprocessing steps.
+**Were you able to achieve the target model performance?**
 
-1. Read in the `charity_data.csv` to a Pandas DataFrame, and be sure to identify the following in your dataset:
+The model's loss is 0.4805, and the accuracy is 0.7847. This means that the model achieved an accuracy of approximately 78.47% on the test dataset.
 
-    * What variable(s) are the target(s) for your model?
-    * What variable(s) are the feature(s) for your model?
+Based on the target set to achieve higher than 75% accuracy, the model has successfully met that goal with an accuracy of 78.47%. Therefore, the model has achieved the desired target performance.
 
-2. Drop the `EIN` and `NAME` columns.
 
-3. Determine the number of unique values for each column.
+**What steps did you take in your attempts to increase model performance?**
 
-4. For columns that have more than 10 unique values, determine the number of data points for each unique value.
+To increase the model performance and achieve an accuracy higher than 75%, several steps could have been taken. Some common strategies to improve model performance include:
 
-5. Use the number of data points for each unique value to pick a cutoff point to combine "rare" categorical variables together in a new value, `Other`, and then check if the replacement was successful.
+Hyperparameter Tuning: Adjusting hyperparameters such as learning rate, batch size, number of epochs, optimizer choice, activation functions, and model architecture can significantly impact model performance.
 
-6. Use `pd.get_dummies()` to encode categorical variables.
+Regularization: Implementing techniques like L1 or L2 regularization, dropout, or batch normalization can help prevent overfitting and improve generalization.
 
-7. Split the preprocessed data into a features array, `x`, and a target array, `y`. Use these arrays and the `train_test_split` function to split the data into training and testing datasets.
+Feature Engineering: Creating new features, scaling or normalizing data, handling missing values, and encoding categorical variables can enhance the model's ability to learn complex patterns.
 
-8. Scale the training and testing features datasets by creating a `StandardScaler` instance, fitting it to the training data, then using the `transform` function.
+Model Architecture: Experimenting with different neural network architectures, including the number of layers, types of layers, and units in each layer, can lead to better performance.
 
-## Step 2: Compile, Train, and Evaluate the Model
 
-Using your knowledge of TensorFlow, you’ll design a neural network, or deep learning model, to create a binary classification model that can predict if an Alphabet Soup-funded organisation will be successful based on the features in the dataset. You’ll need to think about how many inputs there are before determining the number of neurons and layers in your model. Once you’ve completed that step, you’ll compile, train, and evaluate your binary classification model to calculate the model’s loss and accuracy.
+## Summary
 
-1. Continue using the Jupyter Notebook in which you performed the preprocessing steps from Step 1.
 
-2. Create a neural network model by assigning the number of input features and nodes for each layer using TensorFlow and Keras.
+The deep learning model achieved an accuracy of 78.47% on the test dataset, surpassing the target of 75% accuracy. This indicates that the model performed reasonably well in classifying the data.
 
-3. Create the first hidden layer and choose an appropriate activation function.
+For this classification problem, considering the success of the deep learning model, it may be beneficial to explore other advanced machine learning models such as Gradient Boosting Machines (GBM) or Random Forest.
 
-4. If necessary, add a second hidden layer with an appropriate activation function.
+Recommendation:
 
-5. Create an output layer with an appropriate activation function.
+Gradient Boosting Machines (GBM):
 
-6. Check the structure of the model.
+GBM is an ensemble learning method that builds multiple decision trees sequentially, where each tree corrects the errors of the previous one.
+GBM is known for its high accuracy, robustness to overfitting, and ability to handle complex relationships in data.
+It can be effective in handling tabular data and is widely used in various machine learning competitions and real-world applications.
+Random Forest:
 
-7. Compile and train the model.
+Random Forest is another ensemble learning method that builds multiple decision trees and combines their predictions through voting or averaging.
+It is known for its simplicity, scalability, and ability to handle high-dimensional data with ease.
+Random Forest is robust to overfitting and noise in the data, making it a good candidate for classification tasks.
+Explanation:
 
-8. Create a callback that saves the model's weights every five epochs.
-
-9. Evaluate the model using the test data to determine the loss and accuracy.
-
-10 Save and export your results to an HDF5 file. Name the file `AlphabetSoupCharity.h5`.
-
-## Step 3: Optimise the Model
-
-Using your knowledge of TensorFlow, optimise your model to achieve a target predictive accuracy higher than 75%.
-
-Use any or all of the following methods to optimise your model:
-
-* Adjust the input data to ensure that no variables or outliers are causing confusion in the model, such as:
-  
-    * Dropping more or fewer columns.
-
-    * Creating more bins for rare occurrences in columns.
-
-    * Increasing or decreasing the number of values for each bin.
-
-* Add more neurons to a hidden layer.
-
-* Add more hidden layers.
-
-* Use different activation functions for the hidden layers.
-
-* Add or reduce the number of epochs to the training regimen.
-
-***Note:*** *If you make at least three attempts at optimising your model, you will not lose points if your model does not achieve target performance.*
-
-1. Create a new Jupyter Notebook file and name it `AlphabetSoupCharity_Optimisation.ipynb`.
-
-2. Import your dependencies and read in the `charity_data.csv` to a Pandas DataFrame.
-
-3. Preprocess the dataset as you did in Step 1. Be sure to adjust for any modifications that came out of optimising the model.
-
-4. Design a neural network model, and be sure to adjust for modifications that will optimise the model to achieve higher than 75% accuracy.
-
-5. Save and export your results to an HDF5 file. Name the file `AlphabetSoupCharity_Optimisation.h5`.
-
-## Step 4: Write a Report on the Neural Network Model
-
-For this part of the assignment, you’ll write a report on the performance of the deep learning model you created for Alphabet Soup.
-
-The report should contain the following:
-
-1. **Overview** of the analysis: Explain the purpose of this analysis.
-
-2. **Results:** Using bulleted lists and images to support your answers, address the following questions:
-
-    * Data Preprocessing
-
-        * What variable(s) are the target(s) for your model?
-        
-        * What variable(s) are the features for your model?
-
-        *What variable(s) should be removed from the input data because they are neither targets nor features?
-    
-    * Compiling, Training, and Evaluating the Model
-
-        * How many neurons, layers, and activation functions did you select for your neural network model, and why?
-
-        * Were you able to achieve the target model performance?
-
-        * What steps did you take in your attempts to increase model performance?
-
-3. **Summary:** Summarise the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
-
-# Requirements
-
-## Preprocess the Data (30 points)
-
-* Create a dataframe containing the `charity_data.csv` data , and identify the target and feature variables in the dataset (2 points)
-
-* Drop the `EIN` and `NAME` columns (2 points)
-
-* Determine the number of unique values in each column (2 points)
-
-* For columns with more than 10 unique values, determine the number of data points for each unique value (4 points)
-
-* Create a new value called `Other` that contains rare categorical variables (5 points)
-
-* Create a feature array, `x`, and a target array, `y` by using the preprocessed data (5 points)
-
-* Split the preprocessed data into training and testing datasets (5 points)
-
-* Scale the data by using a *StandardScaler* that has been fitted to the training data (5 points)
-
-## Compile, Train and Evaluate the Model (20 points)
-
-* Create a neural network model with a defined number of input features and nodes for each layer (4 points)
-
-* Create hidden layers and an output layer with appropriate activation functions (4 points)
-
-* Check the structure of the model (2 points)
-
-* Compile and train the model (4 points)
-
-* Evaluate the model using the test data to determine the loss and accuracy (4 points)
-
-* Export your results to an HDF5 file named `AlphabetSoupCharity.h5` (2 points)
-
-## Optimise the Model (20 points)
-
-* Repeat the preprocessing steps in a new Jupyter notebook (4 points)
-
-* Create a new neural network model, implementing at least 3 model optimisation methods (15 points)
-
-* Save and export your results to an HDF5 file named `AlphabetSoupCharity_Optimisation.h5` (1 point)
-
-## Write a Report on the Neural Network Model (30 points)
-
-* Write an analysis that includes a title and multiple sections, labeled with headers and subheaders (4 points)
-
-* Format images in the report so that they display correction (2)
-
-* Explain the purpose of the analysis (4)
-
-* Answer all 6 questions in the results section (10)
-
-* Summarise the overall results of your model (4)
-
-* Describe how you could use a different model to solve the same problem, and explain why you would use that model (6)
+While the deep learning model performed well in achieving the target accuracy, exploring models like GBM or Random Forest can provide additional insights and potentially improve performance further. These models offer different strengths and weaknesses compared to neural networks, and their ensemble nature can capture complex patterns in the data effectively. By experimenting with these models and comparing their performance, you can determine the most suitable approach for this classification problem.
